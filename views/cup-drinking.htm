@@ -1,0 +1,16 @@
+<h3>~ Your {{ cup.drinkName }} ~</h3>
+<!-- images have been defined for the different states of a served cup : how warm and how full -->
+<img ng-src="img/cup_{{cup.cupType}}_{{cup.amount}}_{{cup.temperature}}.png" alt="Your {{ cup.drinkName }}" class="cup_img"/>
+<br/>
+<!-- clicking on the button will call the action to reduce the amount of liquid -->
+<!-- the customer can only click this button if there is some liquid content left  -->
+<input type="button" class="button uk-button uk-button-primary" value="Take a sip" ng-click="takeSip()" ng-disabled="cup.amount <= 0"/>
+<br/>
+<!-- clicking on the button will call the action to increase the amount of liquid / and restore initial heat state -->
+<!-- the user can only click this button if there is no liquid content left OR if the hot drink got cold -->
+<input type="button" class="button uk-button uk-button-primary" value="Get a refill" ng-click="getRefill()" ng-disabled="(cup.amount > 0 && (cup.temperature != constants.getKey('temperature_cold') && cup.recommendedTemperature == constants.getKey('temperature_hot'))) || (cup.amount > 0 && cup.recommendedTemperature == constants.getKey('temperature_cold'))" />
+<br/>
+<!-- clicking on the button will call the action to open the menu of drinks and allow for another - or the same (indirect refill) - selection -->
+<!-- the user can always click this button -->
+<input type="button" class="button uk-button uk-button-primary" value="Get another drink" ui-sref="wizard.ordering" />
+<br/>

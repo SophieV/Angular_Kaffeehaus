@@ -1,0 +1,5 @@
+<!-- The wizard is displayed as a popup window/div -->
+<!-- It is located within wizard-container -->
+<h3><span class="capitalize-name">{{ customer.name }}, enjoy</span>. Your {{ cup.drinkName }} is ready!</h3>
+<!-- This is a contextual info that is only shown if the drink served in the cup is hot as initial temperature -->
+<p ng-show="cup.recommendedTemperature == Constants.getKey('temperature_hot')">Tip : Start drinking before it gets cold.</p>

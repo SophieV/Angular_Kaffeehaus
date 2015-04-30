@@ -1,0 +1,20 @@
+<!-- The wizard is displayed as a popup window/div -->
+<!-- It is located within wizard-container -->
+<div class="uk-panel">
+  <form ng-submit="" id="visitor-name-form" class="uk-form uk-form-horizontal cmxform" method="post" action="">
+    <!-- This label is refreshed with the data the customer enters -->
+    <!-- The name is populated with a default value "Visitor" to ensure a good presentation even if the customer skips the question -->
+    <h3><span class="capitalize-name">{{ customer.name }}</span>, please grab a coffee here !</h3>
+    <fieldset>
+      <div class="uk-form-row">
+        <span class="uk-form-help-inline">My name is</span>
+        <input type="text" id="name" name="name" ng-model="customer.name" placeholder="your name here">
+      </div>
+      <div class="uk-form-row">
+        <!-- This button will call the next step in the wizard -->
+        <!-- The user can always click on this button -->
+        <input type="submit" value="View the menu" ui-sref="wizard.ordering" class="uk-button uk-button-primary uk-width-1-1"/>
+      </div>
+    </fieldset>
+  </form>
+</div>

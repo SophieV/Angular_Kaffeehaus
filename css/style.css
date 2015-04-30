@@ -1,0 +1,56 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+#cup-container {
+	margin-left: auto; 
+	margin-right: auto;
+	width: 60%; 
+	height: 270px; 
+	border: 1px black solid; 
+	padding: 1em; 
+	text-align: left;
+}
+
+#wizard-container {
+	position: absolute;
+	top:10%;
+	left:15%;
+	width: 60%; 
+}
+
+.ingredient-desc {
+	font-style:italic;
+}
+
+.coffee-desc {
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+	padding: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 15px;
+}
+
+#wizard-content {
+	overflow: auto; 
+	height: 220px;
+}
+
+.cup-img {
+	width:100px;
+	height:100px;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+
+h3 {
+	font-family: 'Poiret One';
+	text-align:center;
+	font-size:20px;
+}
+
+.capitalize-name {
+	text-transform: capitalize;
+}

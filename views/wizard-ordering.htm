@@ -1,0 +1,27 @@
+<!-- The wizard is displayed as a popup window/div -->
+<!-- It is located within wizard-container -->
+<div class="uk-panel">
+  <h3>Try something new !</h3>
+  <form name="coffeepick" class="uk-form uk-form-horizontal cmxform" method="post" action="">
+    <fieldset>
+      <div class="uk-form-row">
+        <!-- The search is done on all the text content that describes a drink -->
+        <input type="search" ng-model="filterDrink" placeholder="filter ingredient..."/>
+        <!-- This button will call the next step in the wizard -->
+        <!-- The user can only click the button if a drink has been selected -->
+        <input type="submit" class="button uk-button uk-button-primary" value="Place the order" ui-sref="wizard.finish" ng-disabled="!userDrinkChoice.name" ng-click="serveDrink()"/>
+      </div>
+      <div ng-repeat="drink in menu.drinks | filter:filterDrink | orderBy: 'name'" class="coffee-desc">
+        <div class="uk-form-row">
+          <!-- A user click on a radio choice will trigger a copying of descriptive values within the data model -->
+          <input type="radio" name="drinkname" ng-model="userDrinkChoice.name" ng-init="userDrinkChoice.name=''" value="{{ drink.name }}"  ng-click="cup.populateDrink(drink.id, drink.name, drink.recommendedTemperature, drink.recommendedCupForm)"/>
+          <span>{{ drink.name }}</span><p> {{ drink.description }}</p>
+          <p class="served-desc">Served {{ drink.countServed }} time(s)</p>
+          <span ng-repeat="ingredient in drink.ingredients">
+            <span class="ingredient-desc">{{ ingredient }}</span>
+          </span>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

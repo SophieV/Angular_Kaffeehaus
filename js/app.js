@@ -5,8 +5,7 @@ angular.module('CoffeeApp', ['ui.router', 'ngResource', 'ngCookies', 'CoffeeApp.
 .config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider, DataModelService) {
 
-// defines the default page shown
- $urlRouterProvider.otherwise('/drinking');
+
     // specific UI templates are displayed according to the states defined
     // UI views interact/trigger each other by defining new states on actions such as button click
     $stateProvider
@@ -102,5 +101,9 @@ angular.module('CoffeeApp', ['ui.router', 'ngResource', 'ngCookies', 'CoffeeApp.
             $state.transitionTo('welcome');
           }
         }
-      })
+      });
+      
+      // defines the default page shown
+      $urlRouterProvider.otherwise('/welcome');
+
   }]);
